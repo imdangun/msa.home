@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Locale;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 @RestController
 @RequestMapping("/api/license")
 @RequiredArgsConstructor
@@ -98,5 +101,25 @@ public class LicenseController {
             @RequestHeader(value="Accept-Language", required=false) Locale locale) {
         System.out.println(msg.getMessage("license.msg.welcome", null, locale));
         return ResponseEntity.ok(msg.getMessage("license.msg.welcome", null, locale));
+    }
+
+
+    @GetMapping("/hateoas/{id}")
+    public ResponseEntity<LicenseResponse> getLicense(@PathVariable Long id) {
+        LicenseResponse license = licenseService.getLicenseById(id);
+
+        // self 링크
+        license.add(linkTo(methodOn(LicenseController.class).getLicense(id)).withSelfRel());
+
+        // update 링크
+        license.add(linkTo(methodOn(LicenseController.class).updateLicense(id, null)).withRel("update"));
+
+        // delete 링크
+        license.add(linkTo(methodOn(LicenseController.class).deleteLicense(id)).withRel("delete"));
+
+        // all-licenses 링크
+        license.add(linkTo(methodOn(LicenseController.class).getAllLicenses()).withRel("all-licenses"));
+
+        return ResponseEntity.ok(license);
     }
 }

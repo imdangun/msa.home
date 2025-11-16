@@ -3,13 +3,13 @@ package com.msa.license.dto;
 import com.msa.license.domain.License;
 import lombok.Builder;
 import lombok.Getter;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Builder
-public class LicenseResponse {
+public class LicenseResponse  extends RepresentationModel<LicenseResponse> {
 
     private Long licenseId;
     private String licenseName;
