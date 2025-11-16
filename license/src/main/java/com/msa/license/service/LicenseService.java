@@ -50,6 +50,12 @@ public class LicenseService {
      */
     @Transactional
     public LicenseResponse createLicense(LicenseRequest request) {
+        // 중복 체크
+         /*
+        if (licenseRepository.existsByLicenseName(request.getLicenseName())) {
+            throw new IllegalArgumentException("License already exists with name: " + request.getLicenseName());
+        } */
+
         // DTO → Entity 변환
         License license = new License();
         license.setLicenseName(request.getLicenseName());
