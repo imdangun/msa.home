@@ -1,0 +1,26 @@
+https://docs.oracle.com/error-help/db/ora-12514/
+https://docs.oracle.com/error-help/db/ora-12514/
+2025-11-17T17:51:12.191Z  WARN 1 --- [license] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 12514, SQLState: 08006
+2025-11-17T17:51:12.192Z ERROR 1 --- [license] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : ORA-12514: Cannot connect to database. Service license is not registered with the listener at host oracle port 1521. (CONNECTION_ID=MO/K3uS0ReyOsxhZB3Y3OA==)
+https://docs.oracle.com/error-help/db/ora-12514/
+https://docs.oracle.com/error-help/db/ora-12514/] [n/a]
+https://docs.oracle.com/error-help/db/ora-12514/
+https://docs.oracle.com/error-help/db/ora-12514/
+2025-11-17T17:51:12.214Z ERROR 1 --- [license] [           main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2025-11-17T17:51:12.215Z  WARN 1 --- [license] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-17T17:51:12.384Z ERROR 1 --- [license] [           main] o.s.boot.SpringApplication               : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+https://docs.oracle.com/error-help/db/ora-12514/
+https://docs.oracle.com/error-help/db/ora-12514/
+2025-11-17T17:51:27.624Z  WARN 1 --- [license] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 12514, SQLState: 08006
+2025-11-17T17:51:27.624Z ERROR 1 --- [license] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : ORA-12514: Cannot connect to database. Service license is not registered with the listener at host oracle port 1521. (CONNECTION_ID=YIQDk4A6RPOwFdbHcDyrZg==)
+https://docs.oracle.com/error-help/db/ora-12514/
+https://docs.oracle.com/error-help/db/ora-12514/] [n/a]
+https://docs.oracle.com/error-help/db/ora-12514/
+https://docs.oracle.com/error-help/db/ora-12514/
+2025-11-17T17:51:27.631Z ERROR 1 --- [license] [           main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2025-11-17T17:51:27.632Z  WARN 1 --- [license] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-17T17:51:27.747Z ERROR 1 --- [license] [           main] o.s.boot.SpringApplication               : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
