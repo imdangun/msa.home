@@ -9,7 +9,7 @@ spring:
         git:
           uri: https://github.com/imdangun/config_repo.git
           username: imdangun
-          password: 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
+          password: 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
           searchPaths: /config_repo, /config_repo/{application}
           clone-on-start: true
 
