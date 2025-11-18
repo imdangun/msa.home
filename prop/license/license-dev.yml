@@ -1,2 +1,15 @@
+spring:
+  datasource:    
+    url: jdbc:oracle:thin:@oracle:1521/license
+    username: license
+    password: license
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true  
+
 original:
   message: LICENSE-DEV
+
+
