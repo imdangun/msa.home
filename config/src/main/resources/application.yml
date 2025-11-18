@@ -9,7 +9,7 @@ spring:
         git:
           uri: https://github.com/imdangun/msa.home.git
           username: imdangun
-          password: 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
+          password: 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
           searchPaths: /config_repo, /config_repo/{application}
           clone-on-start: true
 

@@ -44,4 +44,4 @@ volumes:
 
 networks:
   oracle-network:
-    driver: bridge
+    external: true
