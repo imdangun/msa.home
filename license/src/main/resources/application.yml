@@ -6,6 +6,7 @@ spring:
   config:
     import: configserver:http://config:8070
 
+
 management:
   endpoint:
     health:

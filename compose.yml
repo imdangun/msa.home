@@ -1,0 +1,110 @@
+services:
+  oracle:
+    image: oracle
+    container_name: oracle
+    ports:
+      - 1521:1521
+    environment:
+      - ORACLE_PWD=oracle
+    volumes:
+      - oracle_vol:/opt/oracle/oradata
+    networks:
+      - oracle-network
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD-SHELL", "echo 'SELECT 1 FROM DUAL;' | sqlplus -s license/license@//localhost:1521/license" ]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
+  
+  config:
+    image: config
+    container_name: config
+    ports:
+      - 8070:8070
+    networks:
+      - oracle-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8070/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+  
+  eureka:
+    image: eureka
+    container_name: eureka
+    ports:
+      - 8071:8071
+    networks:
+      - oracle-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8071/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+      
+  license:
+    image: license
+    container_name: license
+    ports:
+      - 8080:8080
+    networks:
+      - oracle-network
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+    depends_on:
+      oracle:
+        condition: service_healthy
+      config:
+        condition: service_healthy
+      eureka:
+        condition: service_healthy
+    restart: unless-stopped
+    
+  
+  firm:
+    image: firm:latest
+    container_name: firm
+    ports:
+      - "8081:8081"
+    networks:
+      - oracle-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+    depends_on:
+      oracle:
+        condition: service_healthy
+      config:
+        condition: service_healthy
+      eureka:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  oracle_vol:
+    external: true
+
+networks:
+  oracle-network:
+    external: true

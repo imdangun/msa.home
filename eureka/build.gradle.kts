@@ -6,7 +6,7 @@ plugins {
 
 group = "com.msa"
 version = "0.0.1-SNAPSHOT"
-description = "config"
+description = "eureka"
 
 java {
     toolchain {
@@ -21,7 +21,7 @@ repositories {
 extra["springCloudVersion"] = "2025.0.0"
 
 dependencies {
-    implementation("org.springframework.cloud:spring-cloud-config-server")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
