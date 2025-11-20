@@ -52,6 +52,18 @@ services:
       retries: 3
       start_period: 40s
       
+  gateway:
+    image: gateway
+    container_name: gateway
+    ports:
+      - 8088:8088
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8071/eureka/
+    depends_on:
+      - eureka
+    networks:
+      - oracle-network
+      
   license:
     image: license
     container_name: license
