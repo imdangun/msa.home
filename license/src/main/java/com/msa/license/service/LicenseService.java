@@ -1,8 +1,9 @@
 package com.msa.license.service;
 
+import com.msa.license.client.FirmClient;
+import com.msa.license.client.dto.FirmDto;
 import com.msa.license.domain.License;
-import com.msa.license.dto.LicenseRequest;
-import com.msa.license.dto.LicenseResponse;
+import com.msa.license.dto.LicenseWithFirmDto;
 import com.msa.license.repository.LicenseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,98 +18,80 @@ import java.util.stream.Collectors;
 public class LicenseService {
 
     private final LicenseRepository licenseRepository;
+    private final FirmClient firmClient;
 
-    /**
-     * 전체 라이선스 조회
-     */
-    public List<LicenseResponse> getAllLicenses() {
-        return licenseRepository.findAll().stream()
-                .map(LicenseResponse::from)
+    public LicenseWithFirmDto getLicenseWithFirm(Long licenseId) {
+        License license = licenseRepository.findById(licenseId)
+                .orElseThrow(() -> new RuntimeException("License not found: " + licenseId));
+
+        FirmDto firm = firmClient.getFirmById(license.getFirmId());
+
+        return convertToDto(license, firm);
+    }
+
+    public List<LicenseWithFirmDto> getAllLicensesWithFirm() {
+        List<License> licenses = licenseRepository.findAll();
+
+        return licenses.stream()
+                .map(license -> {
+                    FirmDto firm = firmClient.getFirmById(license.getFirmId());
+                    return convertToDto(license, firm);
+                })
                 .collect(Collectors.toList());
     }
 
-    /**
-     * ID로 라이선스 조회
-     */
-    public LicenseResponse getLicenseById(Long id) {
-        License license = licenseRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("License not found with id: " + id));
-        return LicenseResponse.from(license);
+    public List<LicenseWithFirmDto> getLicensesByFirm(Long firmId) {
+        FirmDto firm = firmClient.getFirmById(firmId);
+        List<License> licenses = licenseRepository.findByFirmId(firmId);
+
+        return licenses.stream()
+                .map(license -> convertToDto(license, firm))
+                .collect(Collectors.toList());
     }
 
-    /**
-     * 이름으로 라이선스 조회
-     */
-    public LicenseResponse getLicenseByName(String licenseName) {
-        License license = licenseRepository.findByLicenseName(licenseName)
-                .orElseThrow(() -> new IllegalArgumentException("License not found with name: " + licenseName));
-        return LicenseResponse.from(license);
+    public License getLicense(Long licenseId) {
+        return licenseRepository.findById(licenseId)
+                .orElseThrow(() -> new RuntimeException("License not found: " + licenseId));
     }
 
-    /**
-     * 라이선스 생성
-     */
+    public List<License> getAllLicenses() {
+        return licenseRepository.findAll();
+    }
+
     @Transactional
-    public LicenseResponse createLicense(LicenseRequest request) {
-        // 중복 체크
-         /*
-        if (licenseRepository.existsByLicenseName(request.getLicenseName())) {
-            throw new IllegalArgumentException("License already exists with name: " + request.getLicenseName());
-        } */
-
-        // DTO → Entity 변환
-        License license = new License();
-        license.setLicenseName(request.getLicenseName());
-        license.setCreatedDate(java.time.LocalDate.now());
-
-        // 저장
-        License savedLicense = licenseRepository.save(license);
-
-        // Entity → DTO 변환
-        return LicenseResponse.from(savedLicense);
+    public License createLicense(License license) {
+        firmClient.getFirmById(license.getFirmId());
+        return licenseRepository.save(license);
     }
 
-    /**
-     * 라이선스 수정
-     */
     @Transactional
-    public LicenseResponse updateLicense(Long id, LicenseRequest request) {
-        // 존재 확인
-        License license = licenseRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("License not found with id: " + id));
+    public License updateLicense(Long licenseId, License updatedLicense) {
+        License license = getLicense(licenseId);
+        license.setLicenseName(updatedLicense.getLicenseName());
+        license.setFirmId(updatedLicense.getFirmId());
 
-        // 다른 라이선스가 같은 이름을 사용하는지 확인
-        licenseRepository.findByLicenseName(request.getLicenseName())
-                .ifPresent(existing -> {
-                    if (!existing.getLicenseId().equals(id)) {
-                        throw new IllegalArgumentException("License name already in use: " + request.getLicenseName());
-                    }
-                });
+        firmClient.getFirmById(license.getFirmId());
 
-        // 수정
-        license.setLicenseName(request.getLicenseName());
-
-        // 저장 및 반환
-        License updatedLicense = licenseRepository.save(license);
-        return LicenseResponse.from(updatedLicense);
+        return licenseRepository.save(license);
     }
 
-    /**
-     * 라이선스 삭제
-     */
     @Transactional
-    public void deleteLicense(Long id) {
-        if (!licenseRepository.existsById(id)) {
-            throw new IllegalArgumentException("License not found with id: " + id);
-        }
-
-        licenseRepository.deleteById(id);
+    public void deleteLicense(Long licenseId) {
+        License license = getLicense(licenseId);
+        licenseRepository.delete(license);
     }
 
-    /**
-     * 전체 라이선스 개수
-     */
-    public long count() {
-        return licenseRepository.count();
+    public List<FirmDto> getAllFirms() {
+        return firmClient.getAllFirms();
+    }
+
+    private LicenseWithFirmDto convertToDto(License license, FirmDto firm) {
+        LicenseWithFirmDto dto = new LicenseWithFirmDto();
+        dto.setLicenseId(license.getLicenseId());
+        dto.setLicenseName(license.getLicenseName());
+        dto.setCreatedDate(license.getCreatedDate());
+        dto.setFirmId(license.getFirmId());
+        dto.setFirm(firm);
+        return dto;
     }
 }

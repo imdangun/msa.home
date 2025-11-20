@@ -3,7 +3,6 @@ package com.msa.firm.controller;
 import com.msa.firm.domain.Firm;
 import com.msa.firm.service.FirmService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/firm")
+@RequestMapping("/firms")
+@RequiredArgsConstructor
 public class FirmController {
-    @Autowired
-    private FirmService firmService;
+
+    private final FirmService firmService;
 
     @GetMapping
     public ResponseEntity<List<Firm>> getAllFirms() {
@@ -22,8 +22,8 @@ public class FirmController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Firm> getFirm(@PathVariable Long id) {
-        return ResponseEntity.ok(firmService.findById(id));
+    public ResponseEntity<Firm> getFirm(@PathVariable("id") Long firmId) {
+        return ResponseEntity.ok(firmService.findById(firmId));
     }
 
     @PostMapping
@@ -33,15 +33,16 @@ public class FirmController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Firm> updateFirm(@PathVariable Long id,
-                                           @RequestBody Firm firm) {
-        Firm updated = firmService.update(id, firm);
+    public ResponseEntity<Firm> updateFirm(
+            @PathVariable("id") Long firmId,
+            @RequestBody Firm firm) {
+        Firm updated = firmService.update(firmId, firm);
         return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteFirm(@PathVariable Long id) {
-        firmService.delete(id);
+    public ResponseEntity<Void> deleteFirm(@PathVariable("id") Long firmId) {
+        firmService.delete(firmId);
         return ResponseEntity.noContent().build();
     }
 }

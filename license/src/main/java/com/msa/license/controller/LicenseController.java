@@ -1,125 +1,67 @@
 package com.msa.license.controller;
 
-import com.msa.license.dto.LicenseRequest;
-import com.msa.license.dto.LicenseResponse;
+import com.msa.license.client.dto.FirmDto;
+import com.msa.license.domain.License;
+import com.msa.license.dto.LicenseWithFirmDto;
 import com.msa.license.service.LicenseService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Locale;
-
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping("/api/license")
+@RequestMapping("/licenses")
 @RequiredArgsConstructor
 public class LicenseController {
 
     private final LicenseService licenseService;
-    private final MessageSource msg;
 
-    /**
-     * 전체 라이선스 조회
-     * GET /api/license
-     */
+    @GetMapping("/{licenseId}/with-firm")
+    public ResponseEntity<LicenseWithFirmDto> getLicenseWithFirm(@PathVariable Long licenseId) {
+        return ResponseEntity.ok(licenseService.getLicenseWithFirm(licenseId));
+    }
+
+    @GetMapping("/with-firm")
+    public ResponseEntity<List<LicenseWithFirmDto>> getAllLicensesWithFirm() {
+        return ResponseEntity.ok(licenseService.getAllLicensesWithFirm());
+    }
+
+    @GetMapping("/by-firm/{firmId}")
+    public ResponseEntity<List<LicenseWithFirmDto>> getLicensesByFirm(@PathVariable Long firmId) {
+        return ResponseEntity.ok(licenseService.getLicensesByFirm(firmId));
+    }
+
+    @GetMapping("/test/firms")
+    public ResponseEntity<List<FirmDto>> getAllFirms() {
+        return ResponseEntity.ok(licenseService.getAllFirms());
+    }
+
+    @GetMapping("/{licenseId}")
+    public ResponseEntity<License> getLicense(@PathVariable Long licenseId) {
+        return ResponseEntity.ok(licenseService.getLicense(licenseId));
+    }
+
     @GetMapping
-    public ResponseEntity<List<LicenseResponse>> getAllLicenses() {
-        List<LicenseResponse> licenses = licenseService.getAllLicenses();
-        return ResponseEntity.ok(licenses);
+    public ResponseEntity<List<License>> getAllLicenses() {
+        return ResponseEntity.ok(licenseService.getAllLicenses());
     }
 
-    /**
-     * ID로 라이선스 조회
-     * GET /api/license/{id}
-     */
-    @GetMapping("/{id}")
-    public ResponseEntity<LicenseResponse> getLicenseById(@PathVariable Long id) {
-        LicenseResponse license = licenseService.getLicenseById(id);
-        return ResponseEntity.ok(license);
-    }
-
-    /**
-     * 이름으로 라이선스 조회
-     * GET /api/license/name/{name}
-     */
-    @GetMapping("/name/{name}")
-    public ResponseEntity<LicenseResponse> getLicenseByName(@PathVariable String name) {
-        LicenseResponse license = licenseService.getLicenseByName(name);
-        return ResponseEntity.ok(license);
-    }
-
-    /**
-     * 라이선스 생성
-     * POST /api/license
-     */
     @PostMapping
-    public ResponseEntity<LicenseResponse> createLicense(@Valid @RequestBody LicenseRequest request) {
-        LicenseResponse license = licenseService.createLicense(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(license);
+    public ResponseEntity<License> createLicense(@RequestBody License license) {
+        License created = licenseService.createLicense(license);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
-    /**
-     * 라이선스 수정
-     * PUT /api/license/{id}
-     */
-    @PutMapping("/{id}")
-    public ResponseEntity<LicenseResponse> updateLicense(
-            @PathVariable Long id,
-            @Valid @RequestBody LicenseRequest request) {
-        LicenseResponse license = licenseService.updateLicense(id, request);
-        return ResponseEntity.ok(license);
+    @PutMapping("/{licenseId}")
+    public ResponseEntity<License> updateLicense(@PathVariable Long licenseId, @RequestBody License license) {
+        return ResponseEntity.ok(licenseService.updateLicense(licenseId, license));
     }
 
-    /**
-     * 라이선스 삭제
-     * DELETE /api/license/{id}
-     */
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteLicense(@PathVariable Long id) {
-        licenseService.deleteLicense(id);
+    @DeleteMapping("/{licenseId}")
+    public ResponseEntity<Void> deleteLicense(@PathVariable Long licenseId) {
+        licenseService.deleteLicense(licenseId);
         return ResponseEntity.noContent().build();
-    }
-
-    /**
-     * 전체 개수 조회
-     * GET /api/license/count
-     */
-    @GetMapping("/count")
-    public ResponseEntity<Long> count() {
-        long count = licenseService.count();
-        return ResponseEntity.ok(count);
-    }
-
-    @GetMapping("/hello")
-    public ResponseEntity<String> hello(
-            @RequestHeader(value="Accept-Language", required=false) Locale locale) {
-        System.out.println(msg.getMessage("license.msg.welcome", null, locale));
-        return ResponseEntity.ok(msg.getMessage("license.msg.welcome", null, locale));
-    }
-
-
-    @GetMapping("/hateoas/{id}")
-    public ResponseEntity<LicenseResponse> getLicense(@PathVariable Long id) {
-        LicenseResponse license = licenseService.getLicenseById(id);
-
-        // self 링크
-        license.add(linkTo(methodOn(LicenseController.class).getLicense(id)).withSelfRel());
-
-        // update 링크
-        license.add(linkTo(methodOn(LicenseController.class).updateLicense(id, null)).withRel("update"));
-
-        // delete 링크
-        license.add(linkTo(methodOn(LicenseController.class).deleteLicense(id)).withRel("delete"));
-
-        // all-licenses 링크
-        license.add(linkTo(methodOn(LicenseController.class).getAllLicenses()).withRel("all-licenses"));
-
-        return ResponseEntity.ok(license);
     }
 }
