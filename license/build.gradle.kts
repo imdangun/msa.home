@@ -37,9 +37,10 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-hateoas")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.cloud:spring-cloud-starter-config")
+	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 }
 
-extra["springCloudVersion"] = "2023.0.3"
+extra["springCloudVersion"] = "2025.0.0"
 
 dependencyManagement {
 	imports {

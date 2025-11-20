@@ -1,13 +1,8 @@
 spring:
   application:
     name: license
-  profiles:
-    active: dev
   config:
     import: configserver:http://config:8070
 
-
-management:
-  endpoint:
-    health:
-      show-details: always
+server:
+  port: 8080

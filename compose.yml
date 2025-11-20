@@ -59,47 +59,30 @@ services:
       - 8080:8080
     networks:
       - oracle-network
-    deploy:
-      resources:
-        limits:
-          memory: 1g
+    build:
+      context: license
+      dockerfile: Dockerfile3
     depends_on:
-      oracle:
-        condition: service_healthy
-      config:
-        condition: service_healthy
-      eureka:
-        condition: service_healthy
+      oracle: { condition: service_healthy }
+      config: { condition: service_healthy }
+      eureka: { condition: service_healthy }
     restart: unless-stopped
-    
-  
+
   firm:
-    image: firm:latest
+    image: firm
     container_name: firm
     ports:
-      - "8081:8081"
+      - 8081:8081
     networks:
       - oracle-network
-    environment:
-      - SPRING_PROFILES_ACTIVE=default
-    deploy:
-      resources:
-        limits:
-          memory: 1g
+    build:
+      context: firm
+      dockerfile: Dockerfile
     depends_on:
-      oracle:
-        condition: service_healthy
-      config:
-        condition: service_healthy
-      eureka:
-        condition: service_healthy
+      oracle: {condition: service_healthy}
+      config: {condition: service_healthy}
+      eureka: {condition: service_healthy}
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 60s
 
 volumes:
   oracle_vol:
