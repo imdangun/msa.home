@@ -9,50 +9,65 @@ services:
     volumes:
       - oracle_vol:/opt/oracle/oradata
     networks:
-      - oracle-network
+      - msa_net
     deploy:
       resources:
         limits:
           memory: 2g
     restart: unless-stopped
     healthcheck:
-      test: [ "CMD-SHELL", "echo 'SELECT 1 FROM DUAL;' | sqlplus -s license/license@//localhost:1521/license" ]
+      test: ["CMD-SHELL", "echo 'SELECT 1 FROM DUAL;' | sqlplus -s license/license@//localhost:1521/license"]
       interval: 10s
       timeout: 5s
       retries: 30
       start_period: 60s
-  
+
   config:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE_NAME: config
     image: config
     container_name: config
     ports:
       - 8070:8070
     networks:
-      - oracle-network
+      - msa_net
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8070/actuator/health"]
       interval: 10s
       timeout: 5s
-      retries: 3
-      start_period: 40s
-  
+      retries: 5
+      start_period: 60s
+
   eureka:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE_NAME: eureka
     image: eureka
     container_name: eureka
     ports:
       - 8071:8071
     networks:
-      - oracle-network
+      - msa_net
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8071/actuator/health"]
       interval: 10s
       timeout: 5s
-      retries: 3
-      start_period: 40s
-      
+      retries: 5
+      start_period: 60s
+
   gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE_NAME: gateway
     image: gateway
     container_name: gateway
     ports:
@@ -60,36 +75,41 @@ services:
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8071/eureka/
     depends_on:
-      - eureka
+      eureka:
+        condition: service_healthy
     networks:
-      - oracle-network
-      
+      - msa_net
+
   license:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE_NAME: license
     image: license
     container_name: license
     ports:
       - 8080:8080
     networks:
-      - oracle-network
-    build:
-      context: license
-      dockerfile: Dockerfile3
+      - msa_net
     depends_on:
-      oracle: { condition: service_healthy }
-      config: { condition: service_healthy }
-      eureka: { condition: service_healthy }
+      oracle: {condition: service_healthy}
+      config: {condition: service_healthy}
+      eureka: {condition: service_healthy}
     restart: unless-stopped
 
   firm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE_NAME: firm
     image: firm
     container_name: firm
     ports:
       - 8081:8081
     networks:
-      - oracle-network
-    build:
-      context: firm
-      dockerfile: Dockerfile
+      - msa_net
     depends_on:
       oracle: {condition: service_healthy}
       config: {condition: service_healthy}
@@ -101,5 +121,5 @@ volumes:
     external: true
 
 networks:
-  oracle-network:
+  msa_net:
     external: true

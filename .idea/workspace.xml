@@ -4,17 +4,106 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ca4d35-7fad-405c-bffb-98db03f79c47" name="Changes" comment="" />
+    <list default="true" id="e22ea207-53f6-451d-b9f5-fa59e70aa240" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/license.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/msa.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce_scenario.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/err.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/src/main/java/com/msa/config/ConfigApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/src/test/java/com/msa/config/ConfigApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/err.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/src/main/java/com/msa/eureka/EurekaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/src/test/java/com/msa/eureka/EurekaApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/src/main/java/com/msa/firm/FirmApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/src/main/java/com/msa/firm/controller/FirmController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/src/main/java/com/msa/firm/domain/Firm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/src/main/java/com/msa/firm/repository/FirmRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/src/main/java/com/msa/firm/service/FirmService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firm/src/test/java/com/msa/firm/FirmApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/msa/gateway/GatewayApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/Dockerfile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/Dockerfile3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/err.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/license.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/java/com/msa/license/LicenseApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/java/com/msa/license/client/FirmClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/java/com/msa/license/client/dto/FirmDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/java/com/msa/license/controller/LicenseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/java/com/msa/license/domain/License.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/java/com/msa/license/dto/LicenseWithFirmDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/java/com/msa/license/repository/LicenseRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/java/com/msa/license/service/LicenseService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/resources/msg.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/license/src/main/resources/msg_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prop/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prop/firm.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prop/license.yml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$/config">
-      <ProjectState />
-    </projectState>
-    <projectState path="$PROJECT_DIR$/license">
+    <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
@@ -23,98 +112,72 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="msa" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$/license" gradleHome="C:\Users\javasaju\.gradle\wrapper\dists\gradle-8.14.3-bin\cv11ve7ro1n3o1j4so8xd9n66\gradle-8.14.3" javaHome="C:\DEV\scoop\apps\temurin21-jdk\current" gradleVersion="8.14.3" />
-  <component name="OptimizeOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\javasaju\.gradle\wrapper\dists\gradle-8.14-bin\38aieal9i53h9rfe7vjup95b9\gradle-8.14" javaHome="C:\DEV\scoop\apps\temurin21-jdk\current" gradleVersion="8.14" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="35eUOXvGc1ynIM8qaPtvII8Uciy" />
+  <component name="ProjectId" id="35vCmwBZ75NXF3FkbK7CnbL7LVa" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Docker.compose.yml.license: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.preview.features.used&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/DEV/projects/msa&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\DEV\projects\msa\prop" />
+      <recent name="C:\DEV\projects\msa" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.compose.yml.license: Compose Deployment">
-    <configuration name="ConfigApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="config.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msa.config.ConfigApplication" />
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="msa.license.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LicenseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="license.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msa.license.LicenseApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="msa.gateway.test" />
+      <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration name="compose.yml.license: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="license" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Docker.compose.yml.license: Compose Deployment" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e7ca4d35-7fad-405c-bffb-98db03f79c47" name="Changes" comment="" />
-      <created>1763470000477</created>
+      <changelist id="e22ea207-53f6-451d-b9f5-fa59e70aa240" name="Changes" comment="" />
+      <created>1763981329075</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1763470000477</updated>
+      <updated>1763981329075</updated>
     </task>
     <servers />
   </component>
