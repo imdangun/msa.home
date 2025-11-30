@@ -25,7 +25,7 @@ services:
   config:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_origin
       args:
         SERVICE_NAME: config
     image: config
@@ -45,7 +45,7 @@ services:
   eureka:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_origin
       args:
         SERVICE_NAME: eureka
     image: eureka
@@ -65,7 +65,7 @@ services:
   gateway:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_origin
       args:
         SERVICE_NAME: gateway
     image: gateway
@@ -83,7 +83,7 @@ services:
   license:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_origin
       args:
         SERVICE_NAME: license
     image: license
@@ -101,7 +101,7 @@ services:
   firm:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_origin
       args:
         SERVICE_NAME: firm
     image: firm

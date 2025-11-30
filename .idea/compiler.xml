@@ -8,6 +8,13 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.42/8365263844ebb62398e0dc33057ba10ba472d3b8/lombok-1.18.42.jar" />
         </processorPath>
         <module name="msa.firm.main" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.42/8365263844ebb62398e0dc33057ba10ba472d3b8/lombok-1.18.42.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.6.3/52e345c907fbf173b376586c7f8b131d53fa5867/mapstruct-processor-1.6.3.jar" />
+        </processorPath>
         <module name="msa.license.main" />
       </profile>
     </annotationProcessing>
@@ -15,30 +22,21 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="msa.config" options="-parameters --enable-preview" />
-      <module name="msa.config.main" options="-parameters --enable-preview" />
-      <module name="msa.config.test" options="-parameters --enable-preview" />
-      <module name="msa.eureka" options="-parameters --enable-preview" />
-      <module name="msa.eureka.main" options="-parameters --enable-preview" />
-      <module name="msa.eureka.test" options="-parameters --enable-preview" />
-      <module name="msa.firm" options="-parameters --enable-preview" />
-      <module name="msa.firm.main" options="-parameters --enable-preview" />
-      <module name="msa.firm.test" options="-parameters --enable-preview" />
-      <module name="msa.gateway" options="-parameters --enable-preview" />
-      <module name="msa.gateway.main" options="-parameters --enable-preview" />
-      <module name="msa.gateway.test" options="-parameters --enable-preview" />
-      <module name="msa.license" options="-parameters --enable-preview" />
-      <module name="msa.license.main" options="-parameters --enable-preview" />
-      <module name="msa.license.test" options="-parameters --enable-preview" />
-      <module name="msa.resillience" options="-parameters --enable-preview" />
-      <module name="msa.resillience.main" options="-parameters --enable-preview" />
-      <module name="msa.resillience.test" options="-parameters --enable-preview" />
-      <module name="msa.service" options="-parameters --enable-preview" />
-      <module name="msa.service.main" options="-parameters --enable-preview" />
-      <module name="msa.service.resillience" options="-parameters --enable-preview" />
-      <module name="msa.service.resillience.main" options="-parameters --enable-preview" />
-      <module name="msa.service.resillience.test" options="-parameters --enable-preview" />
-      <module name="msa.service.test" options="-parameters --enable-preview" />
+      <module name="msa.config" options="-parameters" />
+      <module name="msa.config.main" options="-parameters" />
+      <module name="msa.config.test" options="-parameters" />
+      <module name="msa.eureka" options="-parameters" />
+      <module name="msa.eureka.main" options="-parameters" />
+      <module name="msa.eureka.test" options="-parameters" />
+      <module name="msa.firm" options="-parameters" />
+      <module name="msa.firm.main" options="-parameters" />
+      <module name="msa.firm.test" options="-parameters" />
+      <module name="msa.gateway" options="-parameters" />
+      <module name="msa.gateway.main" options="-parameters" />
+      <module name="msa.gateway.test" options="-parameters" />
+      <module name="msa.license" options="-parameters" />
+      <module name="msa.license.main" options="-parameters" />
+      <module name="msa.license.test" options="-parameters" />
     </option>
   </component>
 </project>

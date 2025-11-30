@@ -9,14 +9,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/resillience" />
-            <option value="$PROJECT_DIR$/service" />
             <option value="$PROJECT_DIR$/service/config" />
             <option value="$PROJECT_DIR$/service/eureka" />
             <option value="$PROJECT_DIR$/service/firm" />
             <option value="$PROJECT_DIR$/service/gateway" />
             <option value="$PROJECT_DIR$/service/license" />
-            <option value="$PROJECT_DIR$/service/resillience" />
           </set>
         </option>
       </GradleProjectSettings>

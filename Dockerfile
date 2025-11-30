@@ -1,23 +1,12 @@
-FROM gradle:8.10-jdk21 AS builder
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
 ARG SERVICE_NAME
 
-COPY settings.gradle.kts ./
-COPY build.gradle.kts ./
-COPY gradle ./gradle
-COPY gradlew ./
-COPY service/${SERVICE_NAME}/build.gradle.kts ./service/${SERVICE_NAME}/
-COPY service/${SERVICE_NAME}/src ./service/${SERVICE_NAME}/src
-
-RUN ./gradlew :${SERVICE_NAME}:bootJar --no-daemon
-RUN java -Djarmode=layertools -jar service/${SERVICE_NAME}/build/libs/*.jar extract
-
-FROM eclipse-temurin:21-jre-alpine
-WORKDIR /app
+# curl 설치 (헬스체크용)
 RUN apk add --no-cache curl
-COPY --from=builder /app/dependencies/ ./
-COPY --from=builder /app/spring-boot-loader/ ./
-COPY --from=builder /app/snapshot-dependencies/ ./
-COPY --from=builder /app/application/ ./
-ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
+
+# 로컬에서 빌드한 jar 파일 복사
+COPY service/${SERVICE_NAME}/build/libs/*.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
