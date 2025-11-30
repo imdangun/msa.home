@@ -15,7 +15,7 @@ public class License {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="license_seq")
     @SequenceGenerator(name="license_seq", sequenceName="license_seq", allocationSize=1)
-    private Long licensedockId;
+    private Long licenseId;
     private String licenseName;
     private LocalDate createdDate;
 

@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98eb67a1-d6ce-4089-883a-9248194c2846" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/domain/LicenseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/domain/LicenseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/domain/License.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/domain/License.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/service/LicenseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/service/LicenseService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
