@@ -23,17 +23,17 @@ public class LicenseService {
                 .orElseThrow(() -> new EntityNotFoundException("라이선스 " + licenseId +"가 없습니다."));
     }
 
-    @Transactional
-    public LicenseDto createLicense(LicenseDto licenseDto) {
-        return licenseMapper.toDto(licenseRepository.save(licenseMapper.toEntity(licenseDto)));
-    }
-
     public List<LicenseDto> getLicenses() {
         return licenseMapper.toDtoList(licenseRepository.findAll());
     }
 
     public LicenseDto getLicense(Long licenseId) {
         return licenseMapper.toDto(findLicenseById(licenseId));
+    }
+
+    @Transactional
+    public LicenseDto createLicense(LicenseDto licenseDto) {
+        return licenseMapper.toDto(licenseRepository.save(licenseMapper.toEntity(licenseDto)));
     }
 
     @Transactional

@@ -5,50 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98eb67a1-d6ce-4089-883a-9248194c2846" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/service/company/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/CompanyApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/client/LicenseClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/controller/CompanyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/domain/Company.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/domain/CompanyDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/domain/CompanyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/domain/CompanyWithLicensesDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/domain/LicenseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/repository/CompanyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/service/CompanyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/license.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prop/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prop/firm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/company.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prop/license.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/license.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/config/config.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/config/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service/config/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/eureka/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/service/eureka/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/firm/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/firm/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/firm/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/firm/src/main/java/com/msa/firm/FirmApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/firm/src/main/java/com/msa/firm/controller/FirmController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/firm/src/main/java/com/msa/firm/domain/Firm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/firm/src/main/java/com/msa/firm/repository/FirmRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/firm/src/main/java/com/msa/firm/service/FirmService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/firm/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/LicenseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/LicenseApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/client/FirmClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/client/dto/FirmDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/controller/LicenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/controller/LicenseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/domain/LicenseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/domain/LicenseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/repository/LicenseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/repository/LicenseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/src/main/resources/msg.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/src/main/resources/msg_en.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/domain/LicenseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/domain/LicenseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/domain/License.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/domain/License.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/service/LicenseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/service/LicenseService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

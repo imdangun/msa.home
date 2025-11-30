@@ -13,9 +13,14 @@ import java.time.LocalDate;
 @Table(name="licenses")
 public class License {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long licenseId;
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="license_seq")
+    @SequenceGenerator(name="license_seq", sequenceName="license_seq", allocationSize=1)
+    private Long licensedockId;
     private String licenseName;
-    @CreationTimestamp
     private LocalDate createdDate;
+
+    @PrePersist
+    protected void onCreate() {
+        createdDate = LocalDate.now();
+    }
 }
