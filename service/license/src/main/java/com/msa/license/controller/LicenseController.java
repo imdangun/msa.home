@@ -27,7 +27,6 @@ public class LicenseController {
         return ResponseEntity.ok(licenses);
     }
 
-
     @GetMapping("/{licenseId}")
     public ResponseEntity<LicenseDto> getLicense(@PathVariable Long licenseId) {
         LicenseDto license = licenseService.getLicense(licenseId);

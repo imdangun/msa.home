@@ -1,12 +1,7 @@
-package com.msa.license.domain;
-
-import lombok.Getter;
-import lombok.Setter;
+package com.msa.company.domain;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
 public class LicenseDto {
     private Long licenseId;
     private String licenseName;

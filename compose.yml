@@ -25,7 +25,6 @@ services:
   config:
     build:
       context: .
-      dockerfile: Dockerfile_origin
       args:
         SERVICE_NAME: config
     image: config
@@ -45,7 +44,6 @@ services:
   eureka:
     build:
       context: .
-      dockerfile: Dockerfile_origin
       args:
         SERVICE_NAME: eureka
     image: eureka
@@ -65,7 +63,6 @@ services:
   gateway:
     build:
       context: .
-      dockerfile: Dockerfile_origin
       args:
         SERVICE_NAME: gateway
     image: gateway
@@ -83,7 +80,6 @@ services:
   license:
     build:
       context: .
-      dockerfile: Dockerfile_origin
       args:
         SERVICE_NAME: license
     image: license
@@ -98,22 +94,21 @@ services:
       eureka: {condition: service_healthy}
     restart: unless-stopped
 
-  firm:
+  company:
     build:
       context: .
-      dockerfile: Dockerfile_origin
       args:
-        SERVICE_NAME: firm
-    image: firm
-    container_name: firm
+        SERVICE_NAME: company
+    image: company
+    container_name: company
     ports:
       - 8081:8081
     networks:
       - msa_net
     depends_on:
-      oracle: {condition: service_healthy}
-      config: {condition: service_healthy}
-      eureka: {condition: service_healthy}
+      oracle: { condition: service_healthy }
+      config: { condition: service_healthy }
+      eureka: { condition: service_healthy }
     restart: unless-stopped
 
 volumes:

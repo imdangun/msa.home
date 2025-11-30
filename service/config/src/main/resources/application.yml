@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/imdangun/msa.git
+          uri: https://github.com/imdangun/msa.home.git
           searchPaths: /prop
           clone-on-start: true
 

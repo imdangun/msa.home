@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: company
+  config:
+    import: configserver:http://config:8070
+
+server:
+  port: 8081

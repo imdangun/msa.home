@@ -1,12 +1,11 @@
 FROM eclipse-temurin:21-jre-alpine
-WORKDIR /app
 
-ARG SERVICE_NAME
-
-# curl 설치 (헬스체크용)
+ENV TZ=Asia/Seoul
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apk add --no-cache curl
 
-# 로컬에서 빌드한 jar 파일 복사
+ARG SERVICE_NAME
+WORKDIR /app
 COPY service/${SERVICE_NAME}/build/libs/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
