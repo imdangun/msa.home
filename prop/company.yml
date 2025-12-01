@@ -12,14 +12,11 @@ resilience4j:
   circuitbreaker:
     configs:
       default:
-        registerHealthIndicator: true
         slidingWindowSize: 5
-        minimumNumberOfCalls: 2
+        minimumNumberOfCalls: 3
         permittedNumberOfCallsInHalfOpenState: 2
-        automaticTransitionFromOpenToHalfOpenEnabled: true
         waitDurationInOpenState: 3s
         failureRateThreshold: 50
-        slowCallRateThreshold: 100
         slowCallDurationThreshold: 3s
         recordExceptions:
           - feign.FeignException
@@ -36,14 +33,7 @@ resilience4j:
       default:
         timeoutDuration: 3s
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,circuitbreakers,circuitbreakerevents
-  endpoint:
-    health:
-      show-details: always
-  health:
-    circuitbreakers:
-      enabled: true
+logging:
+  level:
+    io.github.resilience4j.timelimiter: DEBUG
+    io.github.resilience4j.circuitbreaker: DEBUG

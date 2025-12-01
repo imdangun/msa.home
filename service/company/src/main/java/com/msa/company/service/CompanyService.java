@@ -82,13 +82,6 @@ public class CompanyService {
     }
 
     public LicenseDto getLicenseInfo(Long licenseId) {
-        LicenseDto license = licenseClient.getLicense(licenseId);
-
-        if(license.getLicenseName() != null &&
-                license.getLicenseName().contains("중단")) {
-            log.warn("라이선스 {}: fallback response", licenseId);
-        }
-
-        return license;
+        return licenseClient.getLicense(licenseId);
     }
 }

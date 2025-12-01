@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98eb67a1-d6ce-4089-883a-9248194c2846" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/client/LicenseClientFallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/-H" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/-d" beforeDir="false" afterPath="$PROJECT_DIR$/license.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prop/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prop/company.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/company.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/company/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/client/LicenseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/client/LicenseClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/client/LicenseClientFallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/client/LicenseClientFallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/service/CompanyService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
