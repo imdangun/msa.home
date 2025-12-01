@@ -6,12 +6,14 @@ import com.msa.company.repository.CompanyRepository;
 import jakarta.persistence.EntityNotFoundException;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly=true)
@@ -77,5 +79,16 @@ public class CompanyService {
         Company company = findCompanyById(companyId);
         company.getLicenseIds().remove(licenseId);
         return companyMapper.toDto(company);
+    }
+
+    public LicenseDto getLicenseInfo(Long licenseId) {
+        LicenseDto license = licenseClient.getLicense(licenseId);
+
+        if(license.getLicenseName() != null &&
+                license.getLicenseName().contains("중단")) {
+            log.warn("라이선스 {}: fallback response", licenseId);
+        }
+
+        return license;
     }
 }

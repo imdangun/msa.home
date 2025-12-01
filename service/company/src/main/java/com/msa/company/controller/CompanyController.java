@@ -2,6 +2,7 @@ package com.msa.company.controller;
 
 import com.msa.company.domain.CompanyDto;
 import com.msa.company.domain.CompanyWithLicensesDto;
+import com.msa.company.domain.LicenseDto;
 import com.msa.company.service.CompanyService;
 import jakarta.ws.rs.Path;
 import lombok.RequiredArgsConstructor;
@@ -63,5 +64,10 @@ public class CompanyController {
             @PathVariable Long companyId,
             @PathVariable Long licenseId) {
         return ResponseEntity.ok(companyService.removeLicenseFromCompany(companyId, licenseId));
+    }
+
+    @GetMapping("/license/{licenseId}")
+    public LicenseDto getLicenseInfo(@PathVariable Long licenseId) {
+        return companyService.getLicenseInfo(licenseId);
     }
 }
