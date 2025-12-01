@@ -9,10 +9,9 @@ import org.springframework.stereotype.Component;
 public class LicenseClientFallback implements LicenseClient {
     @Override
     public LicenseDto getLicense(Long licenseId) {
-        log.warn("라이선스 {}: LicenseClientFallback. ", licenseId);
         LicenseDto license = new LicenseDto();
         license.setLicenseId(licenseId);
-        license.setLicenseName("라이선스 서비스가 중단되었습니다.");
+        license.setLicenseName("라이선스 서비스, 응답이 없습니다.");
         license.setCreatedDate(null);
 
         return license;

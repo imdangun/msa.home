@@ -26,3 +26,5 @@ management:
 logging:
   level:
     com.msa: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss} %logger{0} : %msg%n"
