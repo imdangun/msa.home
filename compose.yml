@@ -6,6 +6,7 @@ services:
       - 1521:1521
     environment:
       - ORACLE_PWD=oracle
+      - NLS_LANG=AMERICAN_AMERICA.AL32UTF8
     volumes:
       - oracle_vol:/opt/oracle/oradata
     networks:

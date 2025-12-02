@@ -52,11 +52,11 @@ public class CompanyService {
         companyRepository.delete(findCompanyById(companyId));
     }
 
-    public CompanyWithLicensesDto getCompanyWithLicenses(Long companyId) {
+    public CompanyWithLicensesDto getCompanyWithLicenses(Long companyId, Long delay) {
         Company company = findCompanyById(companyId);
 
         List<LicenseDto> licenses = company.getLicenseIds().stream()
-                .map(licenseClient::getLicense)
+                .map(licenseId -> licenseClient.getLicense(licenseId, delay))
                 .collect(Collectors.toList());
 
         CompanyWithLicensesDto dto = new CompanyWithLicensesDto();
@@ -79,9 +79,5 @@ public class CompanyService {
         Company company = findCompanyById(companyId);
         company.getLicenseIds().remove(licenseId);
         return companyMapper.toDto(company);
-    }
-
-    public LicenseDto getLicenseInfo(Long licenseId) {
-        return licenseClient.getLicense(licenseId);
     }
 }

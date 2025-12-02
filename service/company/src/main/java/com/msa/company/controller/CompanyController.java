@@ -28,6 +28,13 @@ public class CompanyController {
         return ResponseEntity.ok(companyService.getCompany(companyId));
     }
 
+    @GetMapping("/{companyId}/licenses")
+    public ResponseEntity<CompanyWithLicensesDto> getCompanyWithLicenses(
+            @PathVariable Long companyId,
+            @RequestParam(required=false, defaultValue="0") Long delay) {
+        return ResponseEntity.ok(companyService.getCompanyWithLicenses(companyId, delay));
+    }
+
     @PostMapping
     public ResponseEntity<CompanyDto> createCompany(@RequestBody CompanyDto companyDto) {
         CompanyDto created = companyService.createCompany(companyDto);
@@ -47,11 +54,6 @@ public class CompanyController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{companyId}/licenses")
-    public ResponseEntity<CompanyWithLicensesDto> getCompanyWithLicenses(@PathVariable Long companyId) {
-        return ResponseEntity.ok(companyService.getCompanyWithLicenses(companyId));
-    }
-
     @PostMapping("/{companyId}/license/{licenseId}")
     public ResponseEntity<CompanyDto> addLicense(
             @PathVariable Long companyId,
@@ -64,10 +66,5 @@ public class CompanyController {
             @PathVariable Long companyId,
             @PathVariable Long licenseId) {
         return ResponseEntity.ok(companyService.removeLicenseFromCompany(companyId, licenseId));
-    }
-
-    @GetMapping("/license/{licenseId}")
-    public LicenseDto getLicenseInfo(@PathVariable Long licenseId) {
-        return companyService.getLicenseInfo(licenseId);
     }
 }

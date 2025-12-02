@@ -22,7 +22,15 @@ public class LicenseController {
     }
 
     @GetMapping("/{licenseId}")
-    public ResponseEntity<LicenseDto> getLicense(@PathVariable Long licenseId) {
+    public ResponseEntity<LicenseDto> getLicense(
+            @PathVariable Long licenseId,
+            @RequestParam(required=false, defaultValue="0") Long delay) {
+        try {
+            Thread.sleep(delay);
+        } catch(InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
         LicenseDto license = licenseService.getLicense(licenseId);
         return ResponseEntity.ok(license);
     }
