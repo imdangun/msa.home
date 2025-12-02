@@ -1,6 +1,9 @@
 spring:
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      data-source-properties:
+        oracle.jdbc.defaultNLS_LANG: KOREAN_KOREA.AL32UTF8
   jpa:
     show-sql: true
     hibernate:

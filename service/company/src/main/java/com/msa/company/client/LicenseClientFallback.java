@@ -11,7 +11,7 @@ public class LicenseClientFallback implements LicenseClient {
     public LicenseDto getLicense(Long licenseId) {
         LicenseDto license = new LicenseDto();
         license.setLicenseId(licenseId);
-        license.setLicenseName("라이선스 서비스, 응답이 없습니다.");
+        license.setLicenseName("라이선스 서비스 응답이 없습니다.");
         license.setCreatedDate(null);
 
         return license;

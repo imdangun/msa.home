@@ -15,12 +15,6 @@ import java.util.List;
 public class LicenseController {
     private final LicenseService licenseService;
 
-    @PostMapping
-    public ResponseEntity<LicenseDto> createLicense(@RequestBody LicenseDto licenseDto) {
-        LicenseDto created = licenseService.createLicense(licenseDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(created);
-    }
-
     @GetMapping
     public ResponseEntity<List<LicenseDto>> getLicenses() {
         List<LicenseDto> licenses = licenseService.getLicenses();
@@ -31,6 +25,12 @@ public class LicenseController {
     public ResponseEntity<LicenseDto> getLicense(@PathVariable Long licenseId) {
         LicenseDto license = licenseService.getLicense(licenseId);
         return ResponseEntity.ok(license);
+    }
+
+    @PostMapping
+    public ResponseEntity<LicenseDto> createLicense(@RequestBody LicenseDto licenseDto) {
+        LicenseDto created = licenseService.createLicense(licenseDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @PutMapping("/{licenseId}")
