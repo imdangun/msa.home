@@ -54,7 +54,7 @@ public class CompanyService {
         companyRepository.delete(findCompanyById(companyId));
     }
 
-    @Bulkhead(name="license", fallbackMethod="getCompanyWidthLicensesFallback")
+    @Bulkhead(name="license", fallbackMethod="getCompanyWithLicensesFallback")
     //@Bulkhead(name="license", type=Bulkhead.Type.THREADPOOL, fallbackMethod="getCompanyWidthLicensesFallback")
     public CompanyWithLicensesDto getCompanyWithLicenses(Long companyId, Long delay) {
         Company company = findCompanyById(companyId);

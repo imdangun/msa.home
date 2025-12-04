@@ -4,10 +4,11 @@ resilience4j:
       default:
         max-concurrent-calls: 3
         max-wait-duration: 1s
-      instances:
-        license:
-          base-config: default
-          max-concurrent-calls: 2
+    instances:
+      license:
+        base-config: default
+        max-concurrent-calls: 2
+
   thread-pool-bulkhead:
     configs:
       default:
