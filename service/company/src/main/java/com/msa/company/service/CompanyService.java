@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly=true)
@@ -55,8 +56,8 @@ public class CompanyService {
     }
 
     @Bulkhead(name="license", fallbackMethod="getCompanyWithLicensesFallback")
-    //@Bulkhead(name="license", type=Bulkhead.Type.THREADPOOL, fallbackMethod="getCompanyWidthLicensesFallback")
     public CompanyWithLicensesDto getCompanyWithLicenses(Long companyId, Long delay) {
+        log.info("▶ LICENSE: {}", Thread.currentThread().getName());
         Company company = findCompanyById(companyId);
 
         List<LicenseDto> licenses = company.getLicenseIds().stream()
@@ -73,11 +74,12 @@ public class CompanyService {
 
     private CompanyWithLicensesDto getCompanyWithLicensesFallback(
             Long companyId, Long delay, Exception e) {
+        log.warn("● FALLBACK: {}, {}", Thread.currentThread().getName(), e.getClass().getSimpleName());
         Company company = findCompanyById(companyId);
 
         CompanyWithLicensesDto dto = new CompanyWithLicensesDto();
         dto.setCompanyId(company.getCompanyId());
-        dto.setCompanyName(company.getCompanyName() + ": 라이선스 조회 제한");
+        dto.setCompanyName(company.getCompanyName() + " (라이선스 서비스 제한)");
         dto.setLicenses(List.of());
 
         return dto;
