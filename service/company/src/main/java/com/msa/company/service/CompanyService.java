@@ -13,7 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly=true)
@@ -52,6 +54,8 @@ public class CompanyService {
         companyRepository.delete(findCompanyById(companyId));
     }
 
+    @Bulkhead(name="license", fallbackMethod="getCompanyWidthLicensesFallback")
+    //@Bulkhead(name="license", type=Bulkhead.Type.THREADPOOL, fallbackMethod="getCompanyWidthLicensesFallback")
     public CompanyWithLicensesDto getCompanyWithLicenses(Long companyId, Long delay) {
         Company company = findCompanyById(companyId);
 
@@ -63,6 +67,18 @@ public class CompanyService {
         dto.setCompanyId(company.getCompanyId());
         dto.setCompanyName(company.getCompanyName());
         dto.setLicenses(licenses);
+
+        return dto;
+    }
+
+    private CompanyWithLicensesDto getCompanyWithLicensesFallback(
+            Long companyId, Long delay, Exception e) {
+        Company company = findCompanyById(companyId);
+
+        CompanyWithLicensesDto dto = new CompanyWithLicensesDto();
+        dto.setCompanyId(company.getCompanyId());
+        dto.setCompanyName(company.getCompanyName() + ": 라이선스 조회 제한");
+        dto.setLicenses(List.of());
 
         return dto;
     }

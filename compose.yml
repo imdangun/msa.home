@@ -101,6 +101,8 @@ services:
       args:
         SERVICE_NAME: company
     image: company
+    environment:
+      - SPRING_PROFILES_ACTIVE=bulk
     container_name: company
     ports:
       - 8081:8081

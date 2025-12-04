@@ -1,0 +1,23 @@
+resilience4j:
+  bulkhead:
+    configs:
+      default:
+        max-concurrent-calls: 3
+        max-wait-duration: 1s
+      instances:
+        license:
+          base-config: default
+          max-concurrent-calls: 2
+  thread-pool-bulkhead:
+    configs:
+      default:
+        max-thread-pool-size: 4
+        core-thread-pool-size: 2
+        queue-capacity: 2
+        keep-alive-duration: 20ms
+    instances:
+      license:
+        base-config: default
+        max-thread-pool-size: 2
+        core-thread-pool-size: 1
+        queue-capacity: 1

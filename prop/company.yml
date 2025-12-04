@@ -14,19 +14,17 @@ resilience4j:
       default:
         slidingWindowSize: 5
         minimumNumberOfCalls: 3
-        permittedNumberOfCallsInHalfOpenState: 2
         waitDurationInOpenState: 3s
+        permittedNumberOfCallsInHalfOpenState: 2
         failureRateThreshold: 50
         slowCallDurationThreshold: 3s
+        slowCallRateThreshold: 50
         recordExceptions:
           - feign.FeignException
           - feign.RetryableException
           - java.io.IOException
           - java.net.SocketTimeoutException
           - java.util.concurrent.TimeoutException
-    instances:
-      license:
-        baseConfig: default
 
   timelimiter:
     configs:

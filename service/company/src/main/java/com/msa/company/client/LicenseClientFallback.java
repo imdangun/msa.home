@@ -1,7 +1,6 @@
 package com.msa.company.client;
 
 import com.msa.company.domain.LicenseDto;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Component
