@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name="license", fallback=LicenseClientFallback.class)
 public interface LicenseClient {
-    @GetMapping("/license/{licenseId}") // <license> controller URL
+    @GetMapping("/license/{licenseId}")
     LicenseDto getLicense(@PathVariable Long licenseId,
             @RequestParam(required=false, defaultValue="0") Long delay);
 }

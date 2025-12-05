@@ -1,0 +1,19 @@
+resilience4j:
+  retry:
+    instances:
+      license:
+        maxAttempts: 3
+        waitDuration: 1000
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+        retryException:
+          - feign.FeignException
+          - java.net.SocketTimeoutException
+        ignoreExceptions:
+          - feign.FeignException.BadRequest
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 1000
+        readTimeout: 2000

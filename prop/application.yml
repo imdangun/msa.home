@@ -17,15 +17,6 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    env:
-      enabled: true
-
 logging:
   level:
     com.msa: DEBUG

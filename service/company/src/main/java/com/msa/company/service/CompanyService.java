@@ -3,6 +3,7 @@ package com.msa.company.service;
 import com.msa.company.client.LicenseClient;
 import com.msa.company.domain.*;
 import com.msa.company.repository.CompanyRepository;
+import io.github.resilience4j.retry.annotation.Retry;
 import jakarta.persistence.EntityNotFoundException;
 
 import lombok.RequiredArgsConstructor;
@@ -55,7 +56,8 @@ public class CompanyService {
         companyRepository.delete(findCompanyById(companyId));
     }
 
-    @Bulkhead(name="license", fallbackMethod="getCompanyWithLicensesFallback")
+    //@Bulkhead(name="license", fallbackMethod="getCompanyWithLicensesFallback")
+    @Retry(name="license")
     public CompanyWithLicensesDto getCompanyWithLicenses(Long companyId, Long delay) {
         log.info("▶ LICENSE: {}", Thread.currentThread().getName());
         Company company = findCompanyById(companyId);

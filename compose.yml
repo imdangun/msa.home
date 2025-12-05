@@ -102,7 +102,7 @@ services:
         SERVICE_NAME: company
     image: company
     environment:
-      - SPRING_PROFILES_ACTIVE=bulk
+      - SPRING_PROFILES_ACTIVE=retry
     container_name: company
     ports:
       - 8081:8081
