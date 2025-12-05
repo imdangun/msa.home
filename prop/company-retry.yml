@@ -18,8 +18,9 @@ feign:
       default:
         connectTimeout: 1000
         readTimeout: 2000
+        loggerLevel: FULL
 
 logging:
   level:
     io.github.resilience4j.retry: DEBUG
-    feign.Logger: FULL
+    com.msa.company.client: DEBUG
