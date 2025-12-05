@@ -12,13 +12,15 @@ resilience4j:
         ignoreExceptions:
           - feign.FeignException.BadRequest
 
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 1000
-        readTimeout: 2000
-        loggerLevel: FULL
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 1000
+            readTimeout: 2000
+            loggerLevel: FULL
 
 logging:
   level:
