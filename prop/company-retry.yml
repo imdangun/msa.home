@@ -6,7 +6,7 @@ resilience4j:
         waitDuration: 1000
         enableExponentialBackoff: true
         exponentialBackoffMultiplier: 2
-        retryException:
+        retryExceptions:
           - feign.FeignException
           - java.net.SocketTimeoutException
         ignoreExceptions:
