@@ -3,10 +3,10 @@ spring:
     url: jdbc:oracle:thin:@oracle:1521/company
     username: company
     password: company
-  cloud:
-    openfeign:
-      circuitbreaker:
-        enabled: true
+#  cloud:
+#    openfeign:
+#      circuitbreaker:
+#        enabled: true
 
 resilience4j:
   circuitbreaker:
