@@ -22,3 +22,9 @@ logging:
     com.msa: DEBUG
   pattern:
     console: "%d{HH:mm:ss} %logger{0} : %msg%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
