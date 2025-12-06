@@ -2,8 +2,8 @@ resilience4j:
   ratelimiter:
     instances:
       license:
-        limit-for-period: 10
-        limit-refresh-period: 1s
+        limit-for-period: 1
+        limit-refresh-period: 10s
         timeout-duration: 0s
 
 logging:
