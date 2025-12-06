@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@oracle:1521/company
+    username: company
+    password: company
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true          # ✅ 활성화
+
+resilience4j:
+  timelimiter:
+    instances:
+      license:
+        timeoutDuration: 2s    # ✅ 2초 타임아웃
+
+  retry:
+    instances:
+      license:
+        maxAttempts: 5
+        waitDuration: 1000
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+        retryExceptions:
+          - feign.FeignException
+          - java.net.SocketTimeoutException
+          - java.util.concurrent.TimeoutException  # ✅ TimeLimiter 예외
