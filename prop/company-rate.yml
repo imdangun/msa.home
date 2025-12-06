@@ -4,4 +4,4 @@ resilience4j:
       license:
         limit-for-period: 10
         limit-refresh-period: 1s
-        timeout-duration: 500ms
+        timeout-duration: 0s
