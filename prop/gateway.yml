@@ -10,3 +10,7 @@ spring:
           uri: lb://company
           predicates:
             - Path=/company/**
+management:
+  endpoint:
+    gateway:
+      enabled: true

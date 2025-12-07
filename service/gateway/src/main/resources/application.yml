@@ -1,4 +1,4 @@
-spirng:
+spring:
   application:
     name: gateway
   config:
