@@ -10,6 +10,3 @@ spring:
           uri: lb://company
           predicates:
             - Path=/company/**
-
-logging:
-  level:
