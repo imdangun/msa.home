@@ -19,9 +19,11 @@ eureka:
 
 logging:
   level:
-    com.msa: DEBUG
+    com.msa: debug
+    org.springframework.cloud: debug
+    io.github.resilience4j: debug
   pattern:
-    console: "%d{HH:mm:ss} %logger{0} : %msg%n"
+    console: "[%d{HH:mm:ss}] %logger{0}: %m%n"
 
 management:
   endpoints:

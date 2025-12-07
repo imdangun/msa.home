@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/service/company" />
             <option value="$PROJECT_DIR$/service/config" />
             <option value="$PROJECT_DIR$/service/eureka" />
+            <option value="$PROJECT_DIR$/service/gateway" />
             <option value="$PROJECT_DIR$/service/license" />
           </set>
         </option>

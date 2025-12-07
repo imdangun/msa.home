@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: license
+          uri: lb://license
+          predicates:
+            - Path=/license/**
+        - id: company
+          uri: lb://company
+          predicates:
+            - Path=/company/**
+
+logging:
+  level:
