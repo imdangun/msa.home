@@ -1,7 +1,5 @@
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	runtimeOnly("com.oracle.database.jdbc:ojdbc11")
 	implementation("org.mapstruct:mapstruct:1.6.3")

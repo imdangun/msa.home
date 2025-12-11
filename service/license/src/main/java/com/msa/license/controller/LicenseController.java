@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/license")
 @RequiredArgsConstructor
@@ -25,7 +26,10 @@ public class LicenseController {
     @GetMapping("/{licenseId}")
     public ResponseEntity<LicenseDto> getLicense(
             @PathVariable Long licenseId,
-            @RequestParam(required=false, defaultValue="0") Long delay) {
+            @RequestParam(required=false, defaultValue="0") Long delay,
+            @RequestHeader(value="Correlation-Id", required=false) String correlationId) {
+        log.info("🔗 License Correlation-Id: {}", correlationId);
+
         try {
             Thread.sleep(delay);
         } catch(InterruptedException e) {

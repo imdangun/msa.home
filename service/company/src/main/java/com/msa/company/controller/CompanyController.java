@@ -6,12 +6,14 @@ import com.msa.company.domain.LicenseDto;
 import com.msa.company.service.CompanyService;
 import jakarta.ws.rs.Path;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/company")
 @RequiredArgsConstructor
@@ -31,7 +33,9 @@ public class CompanyController {
     @GetMapping("/{companyId}/licenses")
     public ResponseEntity<CompanyWithLicensesDto> getCompanyWithLicenses(
             @PathVariable Long companyId,
-            @RequestParam(required=false, defaultValue="0") Long delay) {
+            @RequestParam(required=false, defaultValue="0") Long delay,
+            @RequestHeader(value="Correlation-Id", required=false) String correlationId) {
+        log.info("🔗 Company Correlation-Id: {}", correlationId);
         return ResponseEntity.ok(companyService.getCompanyWithLicenses(companyId, delay));
     }
 

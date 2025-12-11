@@ -72,7 +72,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/DEV/projects/msa/prop",
+    "last_opened_file_path": "C:/DEV/projects/msa",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -81,6 +81,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\DEV\projects\msa" />
       <recent name="C:\DEV\projects\msa\prop" />
       <recent name="C:\DEV\projects\msa\service\company" />
     </key>

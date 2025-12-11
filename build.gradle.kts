@@ -38,6 +38,9 @@ subprojects {
     dependencies {
         "implementation"("org.springframework.boot:spring-boot-starter")
         "implementation"("org.springframework.boot:spring-boot-starter-actuator")
+        "compileOnly"("org.projectlombok:lombok")
+        "annotationProcessor"("org.projectlombok:lombok")
+        "implementation"("io.micrometer:micrometer-tracing-bridge-brave")
     }
 
     tasks.withType<Test> {

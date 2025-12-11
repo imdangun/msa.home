@@ -23,7 +23,7 @@ logging:
     org.springframework.cloud: debug
     io.github.resilience4j: debug
   pattern:
-    console: "[%d{HH:mm:ss}] %logger{0}: %m%n"
+    console: "[%d{HH:mm:ss}] [${spring.application.name:}, %X{traceId:-}, %X{spanId:-}] %logger{0}: %m%n"
 
 management:
   endpoints:
