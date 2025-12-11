@@ -21,6 +21,7 @@ logging:
   level:
     com.msa: debug
     org.springframework.cloud: debug
+    org.springframework.cloud.gateway: trace
     io.github.resilience4j: debug
   pattern:
     console: "[%d{HH:mm:ss}] [${spring.application.name:}, %X{traceId:-}, %X{spanId:-}] %logger{0}: %m%n"
