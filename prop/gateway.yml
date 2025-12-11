@@ -6,8 +6,6 @@ spring:
           uri: lb://license
           predicates:
             - Path=/license/**
-          filters:
-            - RewritePath=/license/(?<segment>.*), /${segment}
         - id: company
           uri: lb://company
           predicates:
