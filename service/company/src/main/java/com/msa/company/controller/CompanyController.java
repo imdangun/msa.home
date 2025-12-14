@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,12 +23,17 @@ public class CompanyController {
     private final CompanyService companyService;
 
     @GetMapping
-    public ResponseEntity<List<CompanyDto>> getAllCompanies() {
+    public ResponseEntity<List<CompanyDto>> getAllCompanies(
+            @AuthenticationPrincipal Jwt jwt) {
+        log.info("User: {}", jwt.getSubject());
         return ResponseEntity.ok(companyService.getAllCompanies());
     }
 
     @GetMapping("/{companyId}")
-    public ResponseEntity<CompanyDto> getCompany(@PathVariable Long companyId) {
+    public ResponseEntity<CompanyDto> getCompany(
+            @PathVariable Long companyId,
+            @AuthenticationPrincipal Jwt jwt) {
+        log.info("User: {}", jwt.getSubject());
         return ResponseEntity.ok(companyService.getCompany(companyId));
     }
 
@@ -34,7 +41,9 @@ public class CompanyController {
     public ResponseEntity<CompanyWithLicensesDto> getCompanyWithLicenses(
             @PathVariable Long companyId,
             @RequestParam(required=false, defaultValue="0") Long delay,
-            @RequestHeader(value="Correlation-Id", required=false) String correlationId) {
+            @RequestHeader(value="Correlation-Id", required=false) String correlationId,
+            @AuthenticationPrincipal Jwt jwt) {
+        log.info("User: {}", jwt.getSubject());
         log.info("🔗 Company Correlation-Id: {}", correlationId);
         return ResponseEntity.ok(companyService.getCompanyWithLicenses(companyId, delay));
     }

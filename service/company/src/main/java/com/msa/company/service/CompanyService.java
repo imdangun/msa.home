@@ -59,7 +59,7 @@ public class CompanyService {
 
     //@Bulkhead(name="license", fallbackMethod="getCompanyWithLicensesFallback")
     //@Retry(name="license", fallbackMethod="getCompanyWithLicensesFallback")
-    @RateLimiter(name = "license", fallbackMethod = "getCompanyWithLicensesFallback")
+    //@RateLimiter(name = "license", fallbackMethod = "getCompanyWithLicensesFallback")
     public CompanyWithLicensesDto getCompanyWithLicenses(Long companyId, Long delay) {
         log.info("▶ LICENSE: {}", Thread.currentThread().getName());
         Company company = findCompanyById(companyId);

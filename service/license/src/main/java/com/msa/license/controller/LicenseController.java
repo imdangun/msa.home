@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,16 +20,19 @@ public class LicenseController {
     private final LicenseService licenseService;
 
     @GetMapping
-    public ResponseEntity<List<LicenseDto>> getLicenses() {
-        List<LicenseDto> licenses = licenseService.getLicenses();
-        return ResponseEntity.ok(licenses);
+    public ResponseEntity<List<LicenseDto>> getLicenses(
+            @AuthenticationPrincipal Jwt jwt) {
+        log.info("User: {}", jwt.getSubject());
+        return ResponseEntity.ok(licenseService.getLicenses());
     }
 
     @GetMapping("/{licenseId}")
     public ResponseEntity<LicenseDto> getLicense(
             @PathVariable Long licenseId,
             @RequestParam(required=false, defaultValue="0") Long delay,
-            @RequestHeader(value="Correlation-Id", required=false) String correlationId) {
+            @RequestHeader(value="Correlation-Id", required=false) String correlationId,
+            @AuthenticationPrincipal Jwt jwt) {
+        log.info("User: {}", jwt.getSubject());
         log.info("🔗 License Correlation-Id: {}", correlationId);
 
         try {
@@ -37,6 +42,8 @@ public class LicenseController {
         }
 
         LicenseDto license = licenseService.getLicense(licenseId);
+
+
         return ResponseEntity.ok(license);
     }
 

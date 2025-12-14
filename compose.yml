@@ -1,4 +1,20 @@
 services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.4
+    container_name: keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    volumes:
+      - keycloak_vol:/opt/keycloak/data
+    ports:
+      - 8073:8080
+    command:
+      - start-dev
+    networks:
+      - msa_net
+    restart: unless-stopped
+
   oracle:
     image: oracle
     container_name: oracle
@@ -71,8 +87,9 @@ services:
     ports:
       - 8072:8072
     depends_on:
-      - config
-      - eureka
+      config: {condition: service_healthy}
+      eureka: {condition: service_healthy}
+      keycloak: {condition: service_started}
     networks:
       - msa_net
     restart: unless-stopped
@@ -98,6 +115,7 @@ services:
       oracle: {condition: service_healthy}
       config: {condition: service_healthy}
       eureka: {condition: service_healthy}
+      keycloak: {condition: service_started}
     restart: unless-stopped
 
   company:
@@ -117,10 +135,13 @@ services:
       oracle: { condition: service_healthy }
       config: { condition: service_healthy }
       eureka: { condition: service_healthy }
+      keycloak: {condition: service_started}
     restart: unless-stopped
 
 volumes:
   oracle_vol:
+    external: true
+  keycloak_vol:
     external: true
 
 networks:

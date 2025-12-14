@@ -1,6 +1,8 @@
 spring:
   cloud:
     gateway:
+      default-filters:
+        - TokenRelay=
       routes:
         - id: license
           uri: lb://license
@@ -12,6 +14,20 @@ spring:
             - Path=/company/**
   reactor:
     context-propagation: auto
+
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://keycloak:8080/realms/msa-realm
+        registration:
+          keycloak:
+            provider: keycloak
+            client-id: gateway
+            client-secret: dw5kxZk5D3psgZFVqiLb1AOMx6jOVojt
+            authorization-grant-type: authorization_code
+            scope: openid, profile, email
 
 management:
   endpoint:

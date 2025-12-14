@@ -3,3 +3,8 @@ spring:
     url: jdbc:oracle:thin:@oracle:1521/license
     username: license
     password: license
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/msa-realm
