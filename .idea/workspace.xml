@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98eb67a1-d6ce-4089-883a-9248194c2846" name="Changes" comment="8. gateway">
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/config/FeignConfig.java" afterDir="false" />
+    <list default="true" id="98eb67a1-d6ce-4089-883a-9248194c2846" name="Changes" comment="9. keycloak">
+      <change afterPath="$PROJECT_DIR$/auth_test.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prop/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prop/company.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/company.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prop/gateway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/gateway.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prop/license.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/license.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/company/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/service/CompanyService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/gateway/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/service/gateway/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/controller/LicenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/controller/LicenseController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +49,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="D:\.gradle\wrapper\dists\gradle-8.14-bin\38aieal9i53h9rfe7vjup95b9\gradle-8.14" javaHome="C:\DEV\scoop\apps\temurin21-jdk\current" gradleVersion="8.14" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -111,11 +105,20 @@
       <option name="project" value="LOCAL" />
       <updated>1765513452475</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="9. keycloak">
+      <option name="closed" value="true" />
+      <created>1765709890221</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1765709890221</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="8. gateway" />
-    <option name="LAST_COMMIT_MESSAGE" value="8. gateway" />
+    <MESSAGE value="9. keycloak" />
+    <option name="LAST_COMMIT_MESSAGE" value="9. keycloak" />
   </component>
 </project>
