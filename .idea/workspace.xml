@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98eb67a1-d6ce-4089-883a-9248194c2846" name="Changes" comment="9. keycloak">
-      <change afterPath="$PROJECT_DIR$/service/company/src/main/java/com/msa/company/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/license/src/main/java/com/msa/license/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prop/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765721728853</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="9. keycloak">
+      <option name="closed" value="true" />
+      <created>1765723239315</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1765723239315</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
