@@ -27,6 +27,8 @@ logging:
     org.springframework.security: debug
     org.springframework.cloud.gateway: debug
     reactor.netty: debug
+    org.springframework.cloud.loadbalancer: debug
+    com.netflix.discovery: debug
 
 management:
   endpoint:
