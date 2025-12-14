@@ -19,7 +19,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:8073/realms/msa-realm
+          jwk-set-uri: http://keycloak:8080/realms/msa-realm/protocol/openid-connect/certs
 
 logging:
   level:
