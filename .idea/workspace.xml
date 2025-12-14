@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98eb67a1-d6ce-4089-883a-9248194c2846" name="Changes" comment="9. keycloak">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prop/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prop/gateway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prop/gateway.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765723239315</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="9. keycloak">
+      <option name="closed" value="true" />
+      <created>1765723802799</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1765723802799</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

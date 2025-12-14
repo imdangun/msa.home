@@ -19,7 +19,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8073/realms/msa-realm
+          issuer-uri: http://keycloak:8073/realms/msa-realm
 
 logging:
   level:
