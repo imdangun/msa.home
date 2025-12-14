@@ -21,7 +21,7 @@ spring:
         jwt:
           issuer-uri: http://keycloak:8080/realms/msa-realm
 
-lgging:
+logging:
   level:
     root: info
     org.springframework.security: debug
