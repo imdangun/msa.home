@@ -7,35 +7,4 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:88080/realms/msa-realm
-#    openfeign:
-#      circuitbreaker:
-#        enabled: true
-
-#resilience4j:
-#  circuitbreaker:
-#    configs:
-#      default:
-#        slidingWindowSize: 5
-#        minimumNumberOfCalls: 3
-#        waitDurationInOpenState: 3s
-#        permittedNumberOfCallsInHalfOpenState: 2
-#        failureRateThreshold: 50
-#        slowCallDurationThreshold: 3s
-#        slowCallRateThreshold: 50
-#        recordExceptions:
-#          - feign.FeignException
-#          - feign.RetryableException
-#          - java.io.IOException
-#          - java.net.SocketTimeoutException
-#          - java.util.concurrent.TimeoutException
-#
-#  timelimiter:
-#    configs:
-#      default:
-#        timeoutDuration: 3s
-#
-#logging:
-#  level:
-#    io.github.resilience4j.timelimiter: DEBUG
-#    io.github.resilience4j.circuitbreaker: DEBUG
+          issuer-uri: http://keycloak:8080/realms/msa-realm
