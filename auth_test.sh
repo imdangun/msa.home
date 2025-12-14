@@ -33,13 +33,13 @@ echo "✅ Token 획득 성공"
 
 # 1. License 목록
 echo -e "\n📋 1. License 목록"
-curl -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+curl -s -H "Authorization: Bearer ${ACCESS_TOKEN}" \
      "${GATEWAY_URL}/license" | jq '.'
 
 # 2. License 단건
 CORRELATION_ID=$(get_correlation_id)
 echo -e "\n📋 2. License 단건 (Correlation-Id: ${CORRELATION_ID})"
-curl -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+curl -s -H "Authorization: Bearer ${ACCESS_TOKEN}" \
      -H "Correlation-Id: ${CORRELATION_ID}" \
      "${GATEWAY_URL}/license/1" | jq '.'
 
