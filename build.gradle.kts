@@ -42,8 +42,4 @@ subprojects {
         "annotationProcessor"("org.projectlombok:lombok")
         "implementation"("io.micrometer:micrometer-tracing-bridge-brave")
     }
-
-    tasks.withType<Test> {
-        useJUnitPlatform()
-    }
 }

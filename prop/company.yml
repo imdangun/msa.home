@@ -8,3 +8,18 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://keycloak:8080/realms/msa-realm/protocol/openid-connect/certs
+  cloud:
+    stream:
+      function:
+        definition: companyChangeSupplier
+      bindings:
+        companyChangeSupplier-out-0:
+          destination: company.change.topic
+          content-type: application/json
+      kafka:
+        binder:
+          brokers: kafka:9092
+          auto-create-topics: true
+          configuration:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+            value.serializer: org.springframework.kafka.support.serializer.JsonSerializer

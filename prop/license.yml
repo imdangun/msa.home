@@ -8,3 +8,22 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://keycloak:8080/realms/msa-realm/protocol/openid-connect/certs
+  cloud:
+    stream:
+      function:
+        definition: companyChangeConsumer
+      bindings:
+        companyChangeConsumer-in-0:
+          destination: company.change.topic
+          content-type: application/json
+          group: license-service-group
+      kafka:
+        binder:
+          brokers: kafka:9092
+        bindings:
+          companyChangeConsumer-in-0:
+            consumer:
+              max-attempts: 3
+              back-off-initial-interval: 1000
+              back-off-multiplier: 2.0
+              enable-auto-commit: false

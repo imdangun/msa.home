@@ -3,6 +3,7 @@ package com.msa.company.controller;
 import com.msa.company.domain.CompanyDto;
 import com.msa.company.domain.CompanyWithLicensesDto;
 import com.msa.company.domain.LicenseDto;
+import com.msa.company.service.CompanyEventPublisher;
 import com.msa.company.service.CompanyService;
 import jakarta.ws.rs.Path;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CompanyController {
     private final CompanyService companyService;
+    private final CompanyEventPublisher eventPublisher;
 
     @GetMapping
     public ResponseEntity<List<CompanyDto>> getAllCompanies(
@@ -50,20 +52,24 @@ public class CompanyController {
 
     @PostMapping
     public ResponseEntity<CompanyDto> createCompany(@RequestBody CompanyDto companyDto) {
-        CompanyDto created = companyService.createCompany(companyDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(created);
+        CompanyDto company = companyService.createCompany(companyDto);
+        eventPublisher.publishCompanyChange("CREATE", company.getCompanyId());
+        return ResponseEntity.status(HttpStatus.CREATED).body(company);
     }
 
     @PutMapping("/{companyId}")
     public ResponseEntity<CompanyDto> updateCompany(
             @PathVariable Long companyId,
             @RequestBody CompanyDto companyDto) {
-        return ResponseEntity.ok(companyService.updateCompany(companyId, companyDto));
+        CompanyDto company = companyService.updateCompany(companyId, companyDto);
+        eventPublisher.publishCompanyChange("UPDATE", companyId);
+        return ResponseEntity.ok(company);
     }
 
     @DeleteMapping("/{companyId}")
     public ResponseEntity<Void> deleteCompany(@PathVariable Long companyId) {
         companyService.deleteCompany(companyId);
+        eventPublisher.publishCompanyChange("DELETE", companyId);
         return ResponseEntity.noContent().build();
     }
 
@@ -71,13 +77,17 @@ public class CompanyController {
     public ResponseEntity<CompanyDto> addLicense(
             @PathVariable Long companyId,
             @PathVariable Long licenseId) {
-        return ResponseEntity.ok(companyService.addLicenseToCompany(companyId, licenseId));
+        CompanyDto company = companyService.addLicenseToCompany(companyId, licenseId);
+        eventPublisher.publishCompanyChange("UPDATE", companyId);
+        return ResponseEntity.ok(company);
     }
 
     @DeleteMapping("/{companyId}/license/{licenseId}")
     public ResponseEntity<CompanyDto> removeLicense(
             @PathVariable Long companyId,
             @PathVariable Long licenseId) {
-        return ResponseEntity.ok(companyService.removeLicenseFromCompany(companyId, licenseId));
+        CompanyDto company = companyService.removeLicenseFromCompany(companyId, licenseId);
+        eventPublisher.publishCompanyChange("UPDATE", companyId);
+        return ResponseEntity.ok(company);
     }
 }
